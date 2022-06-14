@@ -8,7 +8,6 @@ import { IProduct } from '../../model/products.model';
 })
 export class ProductItemComponent implements OnInit {
   @Input() product: IProduct = {id: 0, title: ''}
-  
 
   ngOnInit(): void {
     console.log(this.product)
