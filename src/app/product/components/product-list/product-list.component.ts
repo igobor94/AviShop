@@ -8,7 +8,7 @@ import { IProduct } from '../../model/products.model';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-
+  p: number = 1
   products: IProduct[] = []
 
 
