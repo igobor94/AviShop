@@ -9,14 +9,13 @@ import { ProductModule } from './product/product.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent, HeaderComponent } from './shared';
-import { HomeComponent } from './home/home.component';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
-  declarations: [
-    AppComponent, HeaderComponent, FooterComponent, HomeComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     AppRoutingModule,
+    HomeModule,
     CoreModule,
     SharedModule,
     BrowserModule,
@@ -24,6 +23,6 @@ import { HomeComponent } from './home/home.component';
     ProductModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
