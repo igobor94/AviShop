@@ -1,4 +1,17 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "email": "olivier@mail.com",
+      "password": "bestPassw0rd"
+    },
+    {
+      "id": 2,
+      "email": "igor06brw@gmail.com",
+      "password": "9xwhznq5"
+    }
+  ],
+
   "data": {
     "total": 100,
     "skip": 0,
