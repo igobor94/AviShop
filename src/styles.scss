@@ -1,13 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&family=Roboto:wght@300;400&display=swap');
-
-html {
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Roboto Flex', sans-serif;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import url('./app/styles/_variables.scss');
+@import url('./app/styles/_reset.scss');
+@import url('./app/styles/_typography.scss');
+@import url('./app/styles/_mixins.scss');
+@import url('./app/styles/_breakpoints.scss');
