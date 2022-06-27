@@ -10,9 +10,10 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FooterComponent, HeaderComponent } from './shared';
 import { HomeModule } from './home/home.module';
+import { NavComponent } from './shared/layouts/nav/nav.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, NavComponent, FooterComponent],
   imports: [
     AppRoutingModule,
     HomeModule,

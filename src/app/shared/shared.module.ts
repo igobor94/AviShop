@@ -4,7 +4,7 @@ import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [CommonModule],
   exports: [],
