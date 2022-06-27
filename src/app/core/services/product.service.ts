@@ -8,7 +8,7 @@ import { IData } from '../model/api.model';
   providedIn: 'root',
 })
 export class ProductService {
-  url: string = 'http://localhost:8000/data';
+  url: string = 'http://localhost:3000/data';
   constructor(private http: HttpClient) {}
 
   public getProducts(): Observable<IData> {
