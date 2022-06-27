@@ -1,0 +1,36 @@
+.nav {
+    
+    &__container {
+
+    }
+    &__list {
+        display:flex;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+
+    &__item {
+        padding: 1em;
+
+    }
+
+    &__link {
+    }
+
+    &__wrapper { 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &--links {
+
+        }
+        &--auth {
+
+        }
+    }
+
+    &__icon {
+        
+    }
+}
