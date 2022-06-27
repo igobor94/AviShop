@@ -1,5 +1,6 @@
-@import url('./app/styles/_variables.scss');
-@import url('./app/styles/_reset.scss');
-@import url('./app/styles/_typography.scss');
-@import url('./app/styles/_mixins.scss');
-@import url('./app/styles/_breakpoints.scss');
+@import "./styles/variables";
+@import './styles/reset';
+@import './styles/typography';
+@import url('./styles/_mixins.scss');
+@import url('./styles/_breakpoints.scss');
+@import './styles/components/buttons';
