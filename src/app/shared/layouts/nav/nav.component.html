@@ -18,5 +18,24 @@
             </li>
         </div>
     </ul>
+
+    <div class="nav__mobile mobile">
+        <div #navmobile class="mobile__icon">
+            <i class="mobile__icon--bars fa-solid fa-bars"></i>
+            <i class="mobile__icon--xmark fa-solid fa-xmark"></i>
+        </div>
+        <div class="mobile__">
+
+        </div>
+    </div>
+
+    <div style="text-align: center; margin: 20px">
+        {{ currentBreakpoint }}
+    </div>
+      
+      <div class="container" [ngSwitch]="currentBreakpoint">
+        <span class="large" *ngSwitchCase="Breakpoints.large"> Large </span>
+        <span class="small" *ngSwitchCase="Breakpoints.small"> Small </span>
+      </div>
 </nav>
 
