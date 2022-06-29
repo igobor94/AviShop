@@ -35,15 +35,24 @@
 
 .mobile {
   overflow: hidden;
+
   &__icon {
-    
-    &--xmark {
-        font-size: 1.5em;
-        top: 0;
-        right: 0;
-        margin: 2em;
-        position: absolute;
-        z-index: 100
+    & > .display {
+      display: block;
+    }
+
+    & > .hide {
+      display: none;
+    }
+
+    & > * {
+      font-size: 1.5em;
+      top: 0;
+      right: 0;
+      margin: 0em;
+      position: absolute;
+      z-index: 100;
+      margin: 1em 1.2em
     }
 
   }
@@ -63,6 +72,13 @@
     flex-direction: column;
   }
   &__item {
-    margin: 1em .3em
+    text-align: center;
+    width: 60%;
+    margin: 1em 0.3em;
+  }
+  &__link {
+    font-size: large;
+    width: 100%;
+    display: block;
   }
 }

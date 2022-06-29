@@ -20,11 +20,10 @@
     </ul>
 
     <div *ngIf="mobileNav" class="nav__mobile mobile">
-        <div #navmobile class="mobile__icon">
-            <i class="mobile__icon--bars fa-solid fa-bars"></i>
-            <i class="mobile__icon--xmark fa-solid fa-xmark"></i>
+        <div #navmobile class="mobile__icon" (click)="onClickNavigation()">
+            <i [ngClass]="clickedNavigation ? 'mobile__icon--xmark fa-xmark' : 'mobile__icon--bars fa-bars'" class="fa-solid"></i>
         </div>
-        <div class="mobile__wrapper">
+        <div *ngIf="clickedNavigation" class="mobile__wrapper">
             <ul class="mobile__list nav__list">
                 <li class="mobile__item">
                     <a routerLink="login" class="mobile__link archon archon__link">

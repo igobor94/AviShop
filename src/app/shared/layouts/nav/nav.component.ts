@@ -10,7 +10,8 @@ import { CustomBreakpoints } from 'src/app/core/model/breakpoints.interface';
 export class NavComponent implements OnInit, AfterViewInit {
   @ViewChild('navmobile') navmobile!: ElementRef;
 
-  mobileNav: boolean = false
+  public mobileNav: boolean = false
+  public clickedNavigation = false;
 
   customBreakpoints: CustomBreakpoints = {
     small: '(max-width: 640px)',
@@ -46,6 +47,10 @@ export class NavComponent implements OnInit, AfterViewInit {
       this.currentBreakpoint = this.customBreakpoints.small;
       this.mobileNav = true
     }
+  }
+
+  public onClickNavigation() {
+    this.clickedNavigation = !this.clickedNavigation
   }
 
 }
