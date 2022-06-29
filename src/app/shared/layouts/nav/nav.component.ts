@@ -53,4 +53,8 @@ export class NavComponent implements OnInit, AfterViewInit {
     this.clickedNavigation = !this.clickedNavigation
   }
 
+  public hideOnClick() {
+    this.clickedNavigation = false;
+  }
+
 }

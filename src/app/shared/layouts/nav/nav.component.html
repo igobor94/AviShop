@@ -1,44 +1,48 @@
 <nav class="nav nav__container">
-    <ul *ngIf="!mobileNav" class="nav__list">
-        <div class="nav__wrapper nav__wrapper--links">    
-            <li class="nav__item">
-                <a routerLink="home" class="nav__link archon archon__link">Home<i class="nav__icon archon__icon fa-solid fa-house"></i></a>
-            </li>
-            <li class="nav__item">
-                <a routerLink="products" class="nav__link archon archon__link">Products<i class="nav__icon archon__icon fa-solid fa-list"></i></a>
-            </li>
-        </div>
+  <ul *ngIf="!mobileNav" class="nav__list">
+    <div class="nav__wrapper nav__wrapper--links">
+      <li class="nav__item">
+        <a routerLink="home" class="nav__link archon archon__link">Home<i
+            class="nav__icon archon__icon fa-solid fa-house"></i></a>
+      </li>
+      <li class="nav__item">
+        <a routerLink="products" class="nav__link archon archon__link">Products<i
+            class="nav__icon archon__icon fa-solid fa-list"></i></a>
+      </li>
+    </div>
 
-        <div class="nav__wrapper nav__wrapper--auth">
-            <li class="nav__item">
-                <a routerLink="login" class="nav__link archon archon__link">
-                    Login
-                    <i class="nav__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
-                </a>
-            </li>
-        </div>
-    </ul>
+    <div class="nav__wrapper nav__wrapper--auth">
+      <li class="nav__item">
+        <a routerLink="login" class="nav__link archon archon__link">
+          Login
+          <i class="nav__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
+        </a>
+      </li>
+    </div>
+  </ul>
 
-    <div *ngIf="mobileNav" class="nav__mobile mobile">
-        <div #navmobile class="mobile__icon" (click)="onClickNavigation()">
-            <i [ngClass]="clickedNavigation ? 'mobile__icon--xmark fa-xmark' : 'mobile__icon--bars fa-bars'" class="fa-solid"></i>
-        </div>
-        <div *ngIf="clickedNavigation" class="mobile__wrapper">
-            <ul class="mobile__list nav__list">
-                <li class="mobile__item">
-                    <a routerLink="login" class="mobile__link archon archon__link">
-                        Login
-                        <i class="mobile__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
-                    </a>
-                </li>
-                <li class="mobile__item">
-                    <a routerLink="home" class="mobile__link archon archon__link">Home<i class="mobile__icon archon__icon fa-solid fa-house"></i></a>
-                </li>
-                <li class="mobile__item">
-                    <a routerLink="products" class="mobile__link archon archon__link">Products<i class="mobile__icon archon__icon fa-solid fa-list"></i></a>
-                </li>
-            </ul>
-        </div>
-    </div>    
+  <div *ngIf="mobileNav" class="nav__mobile mobile">
+    <div #navmobile class="mobile__icon" (click)="onClickNavigation()">
+      <i [ngClass]="clickedNavigation ? 'mobile__icon--xmark fa-xmark' : 'mobile__icon--bars fa-bars'"
+        class="fa-solid"></i>
+    </div>
+    <div *ngIf="clickedNavigation" class="mobile__wrapper">
+      <ul class="mobile__list nav__list">
+        <li class="mobile__item">
+          <a routerLink="login" class="mobile__link archon archon__link" (click)="hideOnClick()">
+            Login
+            <i class="mobile__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
+          </a>
+        </li>
+        <li class="mobile__item">
+          <a routerLink="home" class="mobile__link archon archon__link" (click)="hideOnClick()">Home<i
+              class="mobile__icon archon__icon fa-solid fa-house"></i></a>
+        </li>
+        <li class="mobile__item">
+          <a routerLink="products" class="mobile__link archon archon__link" (click)="hideOnClick()">Products<i
+              class="mobile__icon archon__icon fa-solid fa-list"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-
