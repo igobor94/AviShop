@@ -1,5 +1,16 @@
 .footer {
      &__container {
+      background-color: powderblue;
+        padding: 1em;
        text-align: center;
      }
+     &__heading {
+      font-weight: 200;
+
+      .bold {
+        margin: 0em .2em 0em 0em ;
+        font-weight: 600;
+      }
+     }
+     
 }
