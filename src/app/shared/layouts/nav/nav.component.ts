@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { distinctUntilChanged, tap } from 'rxjs';
+import { CustomBreakpoints } from 'src/app/core/model/breakpoints.interface';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -9,24 +10,19 @@ import { distinctUntilChanged, tap } from 'rxjs';
 export class NavComponent implements OnInit, AfterViewInit {
   @ViewChild('navmobile') navmobile!: ElementRef;
 
-  // customBreakpoints: Array<{name: string, breakpoint: string}> =  [
-  //   {name: 'sm', breakpoint: '(max-width: 640px)'},
-  //   {name: 'md', breakpoint: '(max-width: 768px)'},
-  //   {name: 'lg', breakpoint: '(max-width: 1024px)'},
-  //   {name: 'xl', breakpoint: '(max-width: 1280px)'},
-  //   {name: '2xl', breakpoint: '(max-width: 1536px)'},
-  // ]
+  mobileNav: boolean = false
 
-  customBreakpoints: {small: string, large: string} = {
+  customBreakpoints: CustomBreakpoints = {
     small: '(max-width: 640px)',
-    large: '(min-width: 641px)'
+    medium: '(min-width: 641px) and (max-width: 757px)',
+    large: '(min-width: 758px) and (max-width: 1024px)'
   }
 
 
   Breakpoints = this.customBreakpoints;
   currentBreakpoint: string = '';
   readonly breakpoint$ = this.breakpointObserver
-    .observe([this.customBreakpoints.small, this.customBreakpoints.large])
+    .observe([this.customBreakpoints.small, this.customBreakpoints.medium])
     .pipe(
       tap(value =>console.log(value)),
       distinctUntilChanged()
@@ -43,10 +39,12 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   private breakpointChanged() {
-    if(this.breakpointObserver.isMatched(this.customBreakpoints.large)) {
-      this.currentBreakpoint = this.customBreakpoints.large;
+    if(this.breakpointObserver.isMatched(this.customBreakpoints.medium)) {
+      this.currentBreakpoint = this.customBreakpoints.medium;
+      this.mobileNav = false
     } else if(this.breakpointObserver.isMatched(this.customBreakpoints.small)) {
       this.currentBreakpoint = this.customBreakpoints.small;
+      this.mobileNav = true
     }
   }
 
