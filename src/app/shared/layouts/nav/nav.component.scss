@@ -1,36 +1,68 @@
+@import "../../../../styles/variables";
 .nav {
+  &__container {
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+
+  &__item {
+    padding: 1em;
+  }
+
+  &__link {
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &--links {
+    }
+    &--auth {
+    }
+  }
+
+  &__icon {
+  }
+
+  &__mobile {
+  }
+}
+
+.mobile {
+  overflow: hidden;
+  &__icon {
     
-    &__container {
-
-    }
-    &__list {
-        display:flex;
-        justify-content: space-between;
-        list-style-type: none;
-    }
-
-    &__item {
-        padding: 1em;
-
+    &--xmark {
+        font-size: 1.5em;
+        top: 0;
+        right: 0;
+        margin: 2em;
+        position: absolute;
+        z-index: 100
     }
 
-    &__link {
-    }
-
-    &__wrapper { 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-
-        &--links {
-
-        }
-        &--auth {
-
-        }
-    }
-
-    &__icon {
-        
-    }
+  }
+  &__wrapper {
+    z-index: 0;
+    background-color: $azure-x-11-web-color;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
+  &__list {
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__item {
+    margin: 1em .3em
+  }
 }

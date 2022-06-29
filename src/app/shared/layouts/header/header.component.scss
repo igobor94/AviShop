@@ -1,9 +1,11 @@
+@use '../../../../styles/variables';
+
 .header {
     &__container {
         display: flex;
-        margin: .5em 2em;
         justify-content: space-between;
         align-items: center;
+        position: relative;
     }
     &__heading {
 
