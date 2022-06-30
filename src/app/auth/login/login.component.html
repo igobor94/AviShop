@@ -1,13 +1,13 @@
-<form class="form login__form">
+<form [formGroup]="loginForm" (submit)="onLogin()" class="form login__form">
     <fieldset class="form__fieldset login__fieldset">
         <legend class="form__legend login__legend">Log in</legend>
         <label class="form__label login__label" for="username">
             <span class="form__text login__text">Email</span>
-            <input class="form__input login__input" type="email" id="username" placeholder="Type your email..."/>
+            <input formControlName="email" class="form__input login__input" type="email" id="username" placeholder="Type your email..."/>
         </label>
         <label class="form__label login__label" for="password">
             <span class="form__text login__text">Password</span>
-            <input class="form__input login__input" type="password" id="password" placeholder="Then your password... " />
+            <input formControlName="password" class="form__input login__input" type="password" id="password" placeholder="Then your password... " />
         </label>
     </fieldset>
     <section class="form__section login__section">
