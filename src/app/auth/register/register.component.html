@@ -1,1 +1,25 @@
-<p>register works!</p>
+<form class="form register__form">
+    <fieldset class="form__fieldset register__fieldset">
+        <legend class="form__legend register__legend">Register</legend>
+        <label class="form__label register__label" for="username">
+            <span class="form__text register__text">Email</span>
+            <input class="form__input register__input" type="email" id="username" placeholder="Type your email..."/>
+        </label>
+        <label class="form__label register__label" for="password">
+            <span class="form__text register__text">Password</span>
+            <input class="form__input register__input" type="password" id="password" placeholder="Then your password... " />
+        </label>
+        <label class="form__label register__label" for="confirmPassword">
+            <span class="form__text register__text">Confirm Password</span>
+            <input class="form__input register__input" type="password" id="confirmPassword" placeholder="Then your password... " />
+        </label>
+    </fieldset>
+    <section class="form__section register__section">
+        <button class="form__button register__button" type="submit">
+            <span class="form__text--submit form__text register__text--submit">Submit</span>
+        </button>
+    </section>
+    <section class="form__section register__section">
+        <p class="form__text form__text--info">If you're registered, <a routerLink="/login">Login here</a></p>
+    </section>
+</form>
