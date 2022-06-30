@@ -1,0 +1,73 @@
+.form {
+    padding: 1em;
+    background-color: $languid-lavender;
+    &__fieldset {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 0;
+    }
+    &__legend {
+        text-align: center;
+        font-size: 2em;
+        padding: 1em 0 1em 0;
+    }
+    &__label {
+        
+        margin: 1em 0.5em;
+        display: flex;
+        flex-direction: column;
+
+
+        & input[type] {
+            padding-left: 1em;
+
+            &:focus {
+                outline: none;
+                border: 0;
+            }
+        }
+        & input[type=email] {
+            &:focus {
+                border: 0;
+                outline: none;
+            }
+            &:active {
+                border: 0;
+            }
+            &:hover {
+                border: 0;
+            }
+        }
+
+    }
+    &__text {
+        font-size: 1.2em;
+        padding: 0.3em 0em 0.3em 1em;
+
+    }
+    &__input {
+        color: $oxford-blue;
+        border: 0;
+        border-radius: 1em;
+        width: 15em;
+        height: 2em;
+        font-size: 1.2em;
+        outline: none;
+
+        &::placeholder {
+            font-size: 0.9em;
+            color: $powder-blue;
+            text-align: center;
+            transition: font-size .2s ease-in-out;
+        }
+        &:focus {
+
+            &::placeholder {
+                font-size: 0.7em
+            }
+        }
+
+    }
+}
