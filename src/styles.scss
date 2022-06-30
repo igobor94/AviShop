@@ -3,3 +3,12 @@
 @import './styles/typography';
 @import './styles/components/buttons';
 @import './styles/components/forms';
+
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}

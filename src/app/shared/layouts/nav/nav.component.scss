@@ -34,6 +34,7 @@
 }
 
 .mobile {
+  z-index: 99;
   overflow: hidden;
 
   &__icon {
