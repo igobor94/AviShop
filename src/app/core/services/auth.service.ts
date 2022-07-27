@@ -4,7 +4,7 @@ import { map, Observable, tap } from 'rxjs';
 import { User } from '../model/user.interface';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'Application/json' })
 };
 
 @Injectable({
@@ -18,7 +18,8 @@ export class AuthService {
   
 
   login(user: any): any {
-    console.log(user)
-    return this.http.post('http://localhost:8000/login', user, httpOptions)
+    const userStringified = JSON.stringify(user)
+    console.log(userStringified)
+    return this.http.post('http://localhost:8000/login', userStringified , httpOptions)
   }
 }
