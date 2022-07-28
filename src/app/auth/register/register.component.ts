@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -15,14 +16,15 @@ export class RegisterComponent implements OnInit {
     confirmPassword: new FormControl('')
   })
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onRegister() {
     if(this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      return this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+      this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+      return this.router.navigate(['/login'])
     } else {
       return undefined
     }
