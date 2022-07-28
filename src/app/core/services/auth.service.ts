@@ -18,17 +18,12 @@ export class AuthService {
     const userStringified = JSON.stringify(user);
     console.log(userStringified);
     return this.http
-      .post<any>('http://localhost:8000/login', user, {}).pipe(map(user => {
-        localStorage.setItem('user', userStringified);
-        return userStringified
-      }))
+      .post<any>('http://localhost:8000/login', user)
   }
 
   register(user: any): any {
     const userStringified = JSON.stringify(user);
     console.log(userStringified);
-    return this.http.post('http://localhost:8000/register', userStringified, {
-      observe: 'response',
-    });
+    return this.http.post('http://localhost:8000/register', userStringified);
   }
 }
