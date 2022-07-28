@@ -1,0 +1,7 @@
+.validator {
+    &__alert {
+    }
+    &__required {
+        color: $alert;
+    }
+}

@@ -5,16 +5,19 @@
             <span class="form__text login__text">Email</span>
             <input formControlName="email" class="form__input login__input" type="email" id="username" placeholder="Type your email..."/>
         </label>
-        <div class="form__validator form__alert" *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
-            <div class="form__validator--required" *ngIf="loginForm.controls['email'].errors?.['required']">Please enter email!</div>
+        <div class="form__validator validator__alert" *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+            <div class="validator__required" *ngIf="loginForm.controls['email'].errors?.['required']">Please enter email!</div>
         </div>
         <label class="form__label login__label" for="password">
             <span class="form__text login__text">Password</span>
             <input formControlName="password" class="form__input login__input" type="password" id="password" placeholder="Then your password... " />
         </label>
+        <div class="form__validator validator__alert" *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+            <div class="validator__required" *ngIf="loginForm.controls['password'].errors?.['required']">Please enter password!</div>
+        </div>
     </fieldset>
     <section class="form__section login__section">
-        <button class="form__button login__button" type="submit">
+        <button class="form__button login__button" type="submit" disabled="!checkForm">
             <span class="form__text--submit form__text login__text--submit">Submit</span>
         </button>
     </section>
