@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -7,13 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  registerForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+    confirmPassword: new FormControl('')
+  })
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onRegister(user: any) {
-
+  onRegister() {
+    if(this.registerForm.value.password === this.registerForm.value.confirmPassword) {
+      return this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+    } else {
+      return undefined
+    }
   }
 
 }

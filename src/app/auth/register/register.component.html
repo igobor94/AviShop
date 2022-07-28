@@ -1,17 +1,17 @@
-<form class="form register__form">
+<form class="form register__form" [formGroup]="registerForm" (submit)="onRegister()">
     <fieldset class="form__fieldset register__fieldset">
         <legend class="form__legend register__legend">Register</legend>
         <label class="form__label register__label" for="username">
             <span class="form__text register__text">Email</span>
-            <input class="form__input register__input" type="email" id="username" placeholder="Type your email..."/>
+            <input formControlName="email" class="form__input register__input" type="email" id="username" placeholder="Type your email..."/>
         </label>
         <label class="form__label register__label" for="password">
             <span class="form__text register__text">Password</span>
-            <input class="form__input register__input" type="password" id="password" placeholder="Then your password... " />
+            <input formControlName="password" class="form__input register__input" type="password" id="password" placeholder="Then your password... " />
         </label>
         <label class="form__label register__label" for="confirmPassword">
             <span class="form__text register__text">Confirm Password</span>
-            <input class="form__input register__input" type="password" id="confirmPassword" placeholder="And confirm it... " />
+            <input formControlName="confirmPassword" class="form__input register__input" type="password" id="confirmPassword" placeholder="And confirm it... " />
         </label>
     </fieldset>
     <section class="form__section register__section">
