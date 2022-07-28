@@ -24,6 +24,12 @@
       "email": "b@b.com",
       "password": "$2a$10$n4hscWoSPMiMmMS91tZ3Z.3AuxxL5gNscmWzAl37FRnk/dzSCHRzm",
       "id": 5
+    },
+    {
+      "email": "c@c.com",
+      "password": "$2a$10$bsFc7m.QnLpJWogaoe5J5ucTaTCvrir/iWtem1QMqOcj8/xU2yDKC",
+      "confirmPassword": "1234",
+      "id": 6
     }
   ],
   "data": {
