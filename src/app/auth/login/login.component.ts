@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/model/user.interface';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -10,8 +10,10 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+
+  emptyForm: boolean = true;
   loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   })
 
@@ -25,10 +27,15 @@ export class LoginComponent implements OnInit {
   watchFormControl() {
     this.loginForm.controls['email'].valueChanges.subscribe(value => this.logValue(value));
     this.loginForm.controls['password'].valueChanges.subscribe(value => this.logValue(value));
+    this.loginForm.statusChanges.subscribe(value => this.validatorForm(value))
   }
 
   validatorForm(value: string) {
-    
+    if(value === 'VALID') {
+      return this.emptyForm = false;
+    } else {
+      return this.emptyForm = true;
+    }
   }
   
   onLogin() {

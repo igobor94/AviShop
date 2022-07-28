@@ -17,7 +17,7 @@
         </div>
     </fieldset>
     <section class="form__section login__section">
-        <button class="form__button login__button" type="submit" disabled="!checkForm">
+        <button class="form__button login__button" type="submit" [disabled]="emptyForm">
             <span class="form__text--submit form__text login__text--submit">Submit</span>
         </button>
     </section>
