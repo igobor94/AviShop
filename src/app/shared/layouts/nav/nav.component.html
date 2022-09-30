@@ -12,16 +12,16 @@
     </div>
 
     <div class="nav__wrapper nav__wrapper--auth">
-      <li class="nav__item">
+      <li class="nav__item" *ngIf="!isLoggedIn">
         <a routerLink="/auth/login" class="nav__link archon archon__link">
           Login
-          <i class="nav__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
+          <i class="nav__icon archon__icon fa-solid fa-arrow-right-from-bracket"></i>
         </a>
       </li>
-      <li class="nav__item">
+      <li class="nav__item" *ngIf="isLoggedIn">
         <a (click)="onLogout()" class="nav__link archon archon__link">
           Logout
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          <i class="nav__icon archon__icon fa-solid fa-arrow-left-to-bracket"></i>
         </a>
       </li>
     </div>

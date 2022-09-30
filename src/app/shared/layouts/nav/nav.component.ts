@@ -1,17 +1,19 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { distinctUntilChanged, tap } from 'rxjs';
+import { distinctUntilChanged, Observable, of, tap } from 'rxjs';
 import { CustomBreakpoints } from 'src/app/core/model/breakpoints.interface';
+import { AuthService } from 'src/app/core/services/auth.service';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit, AfterViewInit {
+export class NavComponent implements OnInit, AfterViewInit, OnChanges {
   @ViewChild('navmobile') navmobile!: ElementRef;
 
   public mobileNav: boolean = false
   public clickedNavigation = false;
+  public isLoggedIn: boolean = true
 
   customBreakpoints: CustomBreakpoints = {
     small: '(max-width: 640px)',
@@ -29,15 +31,22 @@ export class NavComponent implements OnInit, AfterViewInit {
       distinctUntilChanged()
     )
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private authService: AuthService ) { }
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.breakpoint$.subscribe(() => this.breakpointChanged())
+    this.authService.isLoggedIn.subscribe(res => this.isLoggedIn = res)
   }
+
 
   ngAfterViewInit(): void {
     console.log(this.navmobile)
   }
+
+
 
   private breakpointChanged() {
     if(this.breakpointObserver.isMatched(this.customBreakpoints.medium)) {
@@ -58,7 +67,7 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   public onLogout() {
-    console.log('logout!')
+    this.authService.logout();
   }
 
 }
