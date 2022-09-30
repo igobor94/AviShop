@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { map, Observable, tap } from 'rxjs';
 import { User } from '../model/user.interface';
 
@@ -13,14 +12,8 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
-
-  checkIfAuthenticated(): boolean {
-    const token: string | null = localStorage.getItem('token');
-    console.log(!this.jwtHelper.isTokenExpired(token || undefined))
-    return !this.jwtHelper.isTokenExpired(token || undefined);
-  }
-
+  constructor(private http: HttpClient) {}
+  
   login(user: any): any {
     localStorage
     return this.http

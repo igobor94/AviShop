@@ -13,15 +13,21 @@
 
     <div class="nav__wrapper nav__wrapper--auth">
       <li class="nav__item">
-        <a routerLink="login" class="nav__link archon archon__link">
+        <a routerLink="/auth/login" class="nav__link archon archon__link">
           Login
           <i class="nav__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
+        </a>
+      </li>
+      <li class="nav__item">
+        <a (click)="onLogout()" class="nav__link archon archon__link">
+          Logout
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </a>
       </li>
     </div>
   </ul>
 
-  <div *ngIf="mobileNav" class="nav__mobile mobile">
+  <!-- <div *ngIf="mobileNav" class="nav__mobile mobile">
     <div #navmobile class="mobile__icon" (click)="onClickNavigation()">
       <i [ngClass]="clickedNavigation ? 'mobile__icon--xmark fa-xmark' : 'mobile__icon--bars fa-bars'"
         class="fa-solid"></i>
@@ -29,7 +35,7 @@
     <div *ngIf="clickedNavigation" class="mobile__wrapper">
       <ul class="mobile__list nav__list">
         <li class="mobile__item">
-          <a routerLink="login" class="mobile__link archon archon__link" (click)="hideOnClick()">
+          <a routerLink="auth/login" class="mobile__link archon archon__link" (click)="hideOnClick()">
             Login
             <i class="mobile__icon archon__icon fa-solid fa-arrow-right-to-bracket"></i>
           </a>
@@ -44,5 +50,5 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 </nav>

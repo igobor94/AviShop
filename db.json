@@ -30,6 +30,12 @@
       "password": "$2a$10$bsFc7m.QnLpJWogaoe5J5ucTaTCvrir/iWtem1QMqOcj8/xU2yDKC",
       "confirmPassword": "1234",
       "id": 6
+    },
+    {
+      "email": "d@d.com",
+      "password": "$2a$10$fRE1l4jfZZOggQbYRbBJCutfh57ZGV.NtpbWd/AHtLrqulWZ8BoJG",
+      "confirmPassword": "9xwhznq5",
+      "id": 7
     }
   ],
   "data": {

@@ -39,7 +39,9 @@ export class LoginComponent implements OnInit {
   }
   
   onLogin() {
-    this.authService.login(this.loginForm.value).subscribe((user: any) => console.log(user))
+    this.authService.login(this.loginForm.value).subscribe((user: any) => {
+      localStorage.setItem('access_token', user.token)
+    })
   }
 
   logValue(value: string) {

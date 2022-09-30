@@ -57,4 +57,8 @@ export class NavComponent implements OnInit, AfterViewInit {
     this.clickedNavigation = false;
   }
 
+  public onLogout() {
+    console.log('logout!')
+  }
+
 }
