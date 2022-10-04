@@ -25,7 +25,7 @@ export class AuthService {
       })
   }
 
-  register(user: any): any {
+  register(user: User){
     const userStringified = JSON.stringify(user);
     console.log(userStringified);
     return this.http.post('http://localhost:8000/register', userStringified);
@@ -42,5 +42,12 @@ export class AuthService {
 
   get isLoggedIn() {
     return this._isLoggedIn.asObservable();
+  }
+
+  matchPasswords(param1: string, param2: string): boolean {
+    if(param1 === param2) {
+      return true
+    }
+    return false
   }
 }
