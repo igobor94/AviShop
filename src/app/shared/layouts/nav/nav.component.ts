@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
-export class NavComponent implements OnInit, AfterViewInit, OnChanges {
+export class NavComponent implements OnInit, OnChanges {
   @ViewChild('navmobile') navmobile!: ElementRef;
 
   public mobileNav: boolean = false
@@ -39,11 +39,6 @@ export class NavComponent implements OnInit, AfterViewInit, OnChanges {
   ngOnInit(): void {
     this.breakpoint$.subscribe(() => this.breakpointChanged())
     this.authService.isLoggedIn.subscribe(res => this.isLoggedIn = res)
-  }
-
-
-  ngAfterViewInit(): void {
-    console.log(this.navmobile)
   }
 
 

@@ -5,7 +5,7 @@
         <a routerLink="home" class="nav__link archon archon__link">Home<i
             class="nav__icon archon__icon fa-solid fa-house"></i></a>
       </li>
-      <li class="nav__item">
+      <li class="nav__item" *ngIf="isLoggedIn">
         <a routerLink="products" class="nav__link archon archon__link">Products<i
             class="nav__icon archon__icon fa-solid fa-list"></i></a>
       </li>
