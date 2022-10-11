@@ -22,23 +22,38 @@
   }
   &__item {
     padding: 0.2em;
-    margin: 0.2em 2.2em;
+    margin: 1.2em 1.2em;
     max-width: 30em;
-    width: 30em;
+    width: 300px;
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: #fff;
     z-index: -2;
   }
 
+  &__link {
+    color: rgb(175, 175, 175);
+    text-decoration: none;
+  }
+
   &__title {
-    font-size: 2em;
+    width: 200px;
+    font-size: 1.3em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+  }
+
+  &__description {
+    
+    text-overflow: ellipsis;
+    overflow: hidden; 
   }
 
   &__thumbnail {
     width: 10em;
-    height: 6em;
+    height: 12em;
   }
 }
