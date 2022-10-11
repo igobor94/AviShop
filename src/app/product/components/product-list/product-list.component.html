@@ -1,5 +1,5 @@
 <ul class="product__list">
-    <product-item [product]="product" *ngFor="let product of products | paginate: { itemsPerPage: 3, currentPage: p}"></product-item>
+    <product-item [product]="product" *ngFor="let product of products | paginate: { itemsPerPage: 8, currentPage: p}"></product-item>
 </ul>
 
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
