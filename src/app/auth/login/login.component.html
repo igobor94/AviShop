@@ -7,6 +7,7 @@
         </label>
         <div class="form__validator validator__alert" *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
             <div class="validator__required" *ngIf="loginForm.controls['email'].errors?.['required']">Please enter email!</div>
+            <notification *ngIf="loginForm.controls['email'].errors?.['required']" [type]="'error'" [message]="'display my error'"></notification>
         </div>
         <label class="form__label login__label" for="password">
             <span class="form__text login__text">Password</span>
