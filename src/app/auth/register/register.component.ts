@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { matchPasswords } from 'src/app/shared/validators/match-password.validator';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm = this.fb.group({
+  registerForm: FormGroup = this.fb.group({
     email: ["", { validators: [Validators.required, Validators.email]}],
     password: ['', { validators: [Validators.required] }],
     confirmPassword: ["", { validators: [Validators.required] }]
@@ -21,18 +22,27 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  get email() {
+    return this.registerForm.get('email') as FormControl;
+  }
+  get password() {
+    return this.registerForm.get('password') as FormControl;
+  }
+  get confirmPassword() {
+    return this.registerForm.get('confirmPassword') as FormControl;
+  }
+
   onRegister() {
-    const password = this.registerForm.value.password
-    const confirmPassword = this.registerForm.value.confirmPassword;
-    const isMatched = this.authService.matchPasswords(password, confirmPassword)
+    console.log(this.registerForm)
     delete this.registerForm.value.confirmPassword
-    this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+    this.registerForm.reset()
+    // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
     
-    if(isMatched) {
-      return this.router.navigate(['/auth/login'])
-    } else {
-      return undefined
-    }
+    // if(isMatched) {
+    //   return this.router.navigate(['/auth/login'])
+    // } else {
+    //   return undefined
+    // }
   }
 
 }
