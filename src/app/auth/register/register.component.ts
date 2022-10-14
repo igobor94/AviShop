@@ -11,13 +11,15 @@ import { matchPasswords } from 'src/app/shared/validators/match-password.validat
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup = this.fb.group({
-    email: ["", { validators: [Validators.required, Validators.email]}],
-    password: ['', { validators: [Validators.required] }],
-    confirmPassword: ["", { validators: [Validators.required] }]
-  })
+  registerForm: any;
 
-  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+  this.registerForm = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      confirmPassword: ["", [Validators.required]]
+    }, {  validator: matchPasswords  })
+   }
 
   ngOnInit(): void {
   }
@@ -33,16 +35,18 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
+    const password = this.registerForm.value.password
+    const confirmPassword = this.registerForm.value.confirmPassword;
+    const mismatchError = this.registerForm.mismatchError
     console.log(this.registerForm)
-    delete this.registerForm.value.confirmPassword
-    this.registerForm.reset()
-    // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+    // delete this.registerForm.value.confirmPassword
+    this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
     
-    // if(isMatched) {
-    //   return this.router.navigate(['/auth/login'])
-    // } else {
-    //   return undefined
-    // }
+    if(mismatchError) {
+      return undefined
+    } else {
+      return this.router.navigate(['/auth/login'])
+    }
   }
 
 }
