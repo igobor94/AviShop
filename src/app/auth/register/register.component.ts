@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -7,17 +7,21 @@ import { matchPasswords } from 'src/app/shared/validators/match-password.validat
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup = this.fb.group({
-    email: ["", { validators: [Validators.required, Validators.email]}],
-    password: ['', { validators: [Validators.required] }],
-    confirmPassword: ["", { validators: [Validators.required] }]
-  })
+  registerForm: FormGroup;
+  mismatchError: boolean = false;
 
-  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+  this.registerForm = this.fb.group({
+      email: ["", [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      confirmPassword: ["", [Validators.required]]
+    }, {  validator: matchPasswords  })
+   }
 
   ngOnInit(): void {
   }
@@ -33,16 +37,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    console.log(this.registerForm)
+    this.mismatchError = !this.registerForm?.hasError('mismatch');
+    console.log(this.mismatchError, this.registerForm.dirty)
     delete this.registerForm.value.confirmPassword
-    this.registerForm.reset()
     // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
-    
-    // if(isMatched) {
-    //   return this.router.navigate(['/auth/login'])
-    // } else {
-    //   return undefined
-    // }
+    // return this.router.navigate(['/auth/login'])
   }
 
 }
