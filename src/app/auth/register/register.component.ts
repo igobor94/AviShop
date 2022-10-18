@@ -11,14 +11,15 @@ import { matchPasswords } from 'src/app/shared/validators/match-password.validat
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: any;
+  registerForm: FormGroup;
+  mismatchCorrect: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
   this.registerForm = this.fb.group({
       email: ["", [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirmPassword: ["", [Validators.required]]
-    }, {  validator: matchPasswords  })
+    }, {  validator: matchPasswords, emptyFields  })
    }
 
   ngOnInit(): void {
@@ -35,18 +36,11 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegister() {
-    const password = this.registerForm.value.password
-    const confirmPassword = this.registerForm.value.confirmPassword;
-    const mismatchError = this.registerForm.mismatchError
-    console.log(this.registerForm)
-    // delete this.registerForm.value.confirmPassword
-    this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
-    
-    if(mismatchError) {
-      return undefined
-    } else {
-      return this.router.navigate(['/auth/login'])
-    }
+    this.mismatchCorrect = !this.registerForm?.hasError('mismatch');
+    console.log(this.mismatchCorrect)
+    delete this.registerForm.value.confirmPassword
+    // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+    // return this.router.navigate(['/auth/login'])
   }
 
 }
