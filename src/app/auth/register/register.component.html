@@ -22,9 +22,9 @@
                 <input formControlName="confirmPassword" class="form__input register__input" type="password" id="confirmPassword" placeholder="And confirm it... " />
                 <div class="alert" *ngIf="registerForm.get('confirmPassword')!.errors">
                     <small *ngIf="confirmPassword!.errors!['required'] && confirmPassword!.touched">Cofirm password is required</small>
-                    <small *ngIf="registerForm!.errors!['mismatch'] && confirmPassword!.dirty">Passwords not match</small>
                 </div>
             </label>
+            <small *ngIf="!mismatchError">Passwords not match</small>
         </div>
     </fieldset>
     <section class="form__section register__section">
