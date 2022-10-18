@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
       email: ["", [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       confirmPassword: ["", [Validators.required]]
-    }, {  validator: matchPasswords, emptyFields  })
+    }, {  validator: matchPasswords  })
    }
 
   ngOnInit(): void {
