@@ -1,5 +1,5 @@
-import { FormGroup } from "@angular/forms";
+import { AbstractControl } from "@angular/forms";
 
-export function matchPasswords(form: FormGroup) {
-  return form.controls['password'].value === form.controls['confirmPassword'].value ? null : {'mismatch': true};
+export function matchPasswords(group: AbstractControl) {
+  return group.get('password')?.value === group.get('confirmPassword')?.value ? null : { 'mismatch': true }
 }
