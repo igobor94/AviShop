@@ -24,8 +24,8 @@
                     <small *ngIf="confirmPassword!.errors!['required'] && confirmPassword!.touched">Cofirm password is required</small>
                 </div>
             </label>
-            <div class="alert" *ngIf="confirmPassword!.dirty || password!.dirty">
-                <small *ngIf="!mismatchError">Passwords not match</small>
+            <div class="alert" *ngIf="registerForm.hasError('mismatch')">
+                <small *ngIf="registerForm.hasError('mismatch')">Passwords not match</small>
             </div>
         </div>
     </fieldset>

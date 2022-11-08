@@ -1,14 +1,13 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { matchPasswords } from 'src/app/shared/validators/match-password.validator';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Default
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
 
@@ -24,6 +23,7 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.registerForm.valueChanges.subscribe(err => console.log(err))
   }
 
   get email() {
@@ -38,7 +38,6 @@ export class RegisterComponent implements OnInit {
 
   onRegister() {
     this.mismatchError = !this.registerForm?.hasError('mismatch');
-    console.log(this.mismatchError, this.registerForm.dirty)
     delete this.registerForm.value.confirmPassword
     // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
     // return this.router.navigate(['/auth/login'])
