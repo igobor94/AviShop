@@ -39,8 +39,8 @@ export class RegisterComponent implements OnInit {
   onRegister() {
     this.mismatchError = !this.registerForm?.hasError('mismatch');
     delete this.registerForm.value.confirmPassword
-    // this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
-    // return this.router.navigate(['/auth/login'])
+    this.authService.register(this.registerForm.value).subscribe((response: any) => console.log(response))
+    return this.router.navigate(['/auth/login'])
   }
 
 }
