@@ -44,10 +44,11 @@ export class AuthService {
     return this._isLoggedIn.asObservable();
   }
 
-  matchPasswords(param1: string, param2: string): boolean {
-    if(param1 === param2) {
-      return true
-    }
-    return false
+  checkIsLoggin() { 
+    if (localStorage.getItem('Bearer')) {
+      return this._isLoggedIn.next(true)
+    } 
+    return this._isLoggedIn.next(false)
   }
+  
 }
