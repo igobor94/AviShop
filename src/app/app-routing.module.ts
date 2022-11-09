@@ -7,7 +7,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'auth', loadChildren: ()=> import("./auth/auth.module").then(m => m.AuthModule) },
-  { path: 'products', loadChildren: ()=> import("./product/product.module").then(m => m.ProductModule), canActivate:[AuthGuard]}
+  { path: 'products', loadChildren: ()=> import("./product/product.module").then(m => m.ProductModule), canActivate:[AuthGuard]},
+  { path: 'shopping-cart', loadChildren: ()=> import("./shopping-cart/shopping-cart.module").then(m => m.ShoppingCartModule)}
 ];
 
 @NgModule({
