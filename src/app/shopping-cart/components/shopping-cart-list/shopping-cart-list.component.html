@@ -1,1 +1,1 @@
-<li shopping-cart-item class="shopping-cart__item"></li>
+<li shopping-cart-item class="shopping-cart__item" *ngFor="let product of listOfProducts" [cart]="product"></li>
