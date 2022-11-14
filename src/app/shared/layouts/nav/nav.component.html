@@ -9,6 +9,10 @@
         <a routerLink="products" class="nav__link archon archon__link">Products<i
             class="nav__icon archon__icon fa-solid fa-list"></i></a>
       </li>
+      <li class="nav__item" *ngIf="isLoggedIn">
+        <a routerLink="shopping-cart" class="nav__link archon archon__link">Shopping Cart<i
+            class="nav__icon archon__icon fa-solid fa-cart-shopping"></i></a>
+      </li>
     </div>
 
     <div class="nav__wrapper nav__wrapper--auth">
