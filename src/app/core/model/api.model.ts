@@ -6,3 +6,7 @@ export interface IData {
     total: number,
     products: IProduct[]
 }
+
+export interface IShoppingCart {
+    products: IProduct[]
+}
