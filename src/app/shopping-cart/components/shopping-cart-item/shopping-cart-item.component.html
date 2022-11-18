@@ -1,13 +1,13 @@
 <div class="shopping-cart__element--container">
     <label>Select: 
-        <input type="checkbox" value="Add"/>
+        <input type="checkbox" [checked]="cart.isSelected"/>
     </label>
     <a class="shopping-cart__link">
         <h3>{{ cart.title }}</h3>
     </a>
     <div>
         <button class="shopping-cart__button-decrease">-</button>
-        <input type="number" />
+        <input type="number" value="{{ cart.quantity }}" />
         <button class="shopping-cart__button-increase">+</button>
     </div>
 </div>
