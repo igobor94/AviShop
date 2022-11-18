@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { IShoppingCart } from 'src/app/product/model/shopping-cart.model';
 
 @Component({
   selector: '[shopping-cart-list]',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ShoppingCartListComponent implements OnInit {
 
-  @Input() listOfProducts: any = []
+  @Input() listOfProducts: IShoppingCart[] = []
 
   constructor() { }
 
